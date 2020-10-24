@@ -1,13 +1,21 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, {useCallback, useRef, useState} from "react";
 
 const UseRef = () => {
-    return (
-      <>
-        <h1>useRefのテスト</h1>
-        <Link to="/">Home</Link>
-      </>
-    )
+
+  const inputEl = useRef(null)
+  const [text,changeText] = useState("")
+  const handleClick = useCallback(()=>{
+    // @ts-ignore
+    changeText(inputEl.current.value)
+  },[])
+
+  return (
+    <>
+      <p>text : {text}</p>
+      <input ref={inputEl} type="text" />
+      <button onClick={handleClick}>セット</button>
+    </>
+  )
 }
 
 export default UseRef;
