@@ -1,11 +1,23 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 
 const UseEffect = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(count, "buttonをクリックしてもcountが正常にされない");
+  }, [])
+
+  useEffect(() => {
+    console.log(count);
+  }, [count])
+
     return (
       <>
         <h1>useEffectのテスト</h1>
         <Link to="/">Home</Link>
+        <br/>
+        <button onClick={() => setCount(count + 1)}>button</button>
       </>
     )
 }
