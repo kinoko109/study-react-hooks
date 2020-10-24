@@ -12,6 +12,10 @@ const UseEffect = () => {
     console.log(count);
   }, [count])
 
+  useEffect(() => {
+    return console.log(count * 100);
+  }, [count])
+
     return (
       <>
         <h1>useEffectのテスト</h1>
